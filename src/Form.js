@@ -2,25 +2,28 @@
 
 import { useState, useEffect } from "react";
 
-function Form(){
+function Form(props){
 
-     const [playerCount, setPlayerCount] = useState(2);
-     const [playerAge, setPlayerAge] = useState(12)
+     console.log(props.handleSubmit)
+
+     const [players, setPlayers] = useState(2);
+     const [age, setAge] = useState(12)
 
      const handlePlayerCount = (e)=> {
-          console.log(e.target.value)
-          setPlayerCount(e.target.value);
+          console.log(e.target.value);
+          setPlayers(e.target.value);
      }
 
      const handlePlayerAge = (e) => {
-          console.log(e.target.valueAsNumber)
-          setPlayerAge(e.target.valueAsNumber)
+          console.log(e.target.value)
+          setAge(e.target.value);
      }
+
 
      return(
           <form 
                action=""
-               // onSubmit=
+               onSubmit={()=> {props.handleSubmit(age, players)}}
           >
                <label htmlFor="numberOfPlayers">How Many Players are Joining the Game?</label>
                <select 
@@ -40,12 +43,21 @@ function Form(){
                     <option value="9">9</option>
                     <option value="10">10</option>
                </select>
-               <label htmlFor="ageOfPlayers">Age Range?</label>
-               <input 
-                    type="number"
+               <label htmlFor="ageOfPlayers">Age of Youngest Player</label>
+               <select
                     name="ageOfPlayers"
+                    id="ageOfPlayers"
                     onChange={handlePlayerAge}
-               />
+               >
+                    <option value="placeholder" disabled></option>
+                    <option value="4">3 and Under</option>
+                    <option value="6">3-5</option>
+                    <option value="9">5-8</option>
+                    <option value="13">9-12</option>
+                    <option value="18">12-17</option>
+                    <option value="100">18+ </option>
+               </select>
+               
                <button>Get me Games</button>
           </form>
           

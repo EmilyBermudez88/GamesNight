@@ -20,25 +20,36 @@ function App() {
 
   const [games, setGames] = useState([]);
 
+  //states to be passed down to Form
+  const [playerCount, setPlayerCount] = useState(2);
+  const [playerAge, setPlayerAge] = useState(12)
+
   useEffect(()=>{
     const apiKey = 'oEDsQuBLZm'
     axios({
       url: 'https://api.boardgameatlas.com/api/search',
       params: {
         client_id: apiKey,
-        lt_max_players: 3
+        lt_max_players: playerCount,
+        lt_min_age: playerAge
       }
     }).then((response) => {
       console.log(response.data.games);
-      // setGames(response.data.games);
-      // console.log(games);
+      setGames(response.data.games);
     })
-  }, []);
+  }, [playerAge]);
+
+  const setGameOptions = (e, param1, param2)=>{
+    e.preventDefault();
+    console.log(games)
+    setPlayerCount(param1);
+    setPlayerAge(param2);
+  }
 
   return (
     <div>
       <h1>does this work?</h1>
-      <Form />
+      <Form handleSubmit={setGameOptions}/>
     </div>
   );
 }
