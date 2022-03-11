@@ -3,6 +3,7 @@ import axios from 'axios';
 import {useEffect, useState} from 'react';
 
 import Form from './Form';
+import GameGallery from './GameGallery';
 
 //possible params to use for app:
 //name: string
@@ -20,9 +21,11 @@ function App() {
 
   const [games, setGames] = useState([]);
 
-  //states to be passed down to Form
-  const [playerCount, setPlayerCount] = useState(2);
-  const [playerAge, setPlayerAge] = useState(12)
+  //state object to be passed up from Form
+  const [playerCount, setPlayerCount] = useState({
+      players: 4,
+      age:12
+  });
 
   useEffect(()=>{
     const apiKey = 'oEDsQuBLZm'
@@ -30,26 +33,28 @@ function App() {
       url: 'https://api.boardgameatlas.com/api/search',
       params: {
         client_id: apiKey,
-        lt_max_players: playerCount,
-        lt_min_age: playerAge
+        max_players: playerCount.players,
+        lt_min_age: playerCount.age
       }
     }).then((response) => {
-      console.log(response.data.games);
+      // console.log(response.data.games);
       setGames(response.data.games);
     })
-  }, [playerAge]);
+  }, [playerCount]);
 
-  const setGameOptions = (e, param1, param2)=>{
+  const setGameOptions = (e, param1)=>{
     e.preventDefault();
-    console.log(games)
     setPlayerCount(param1);
-    setPlayerAge(param2);
   }
 
   return (
     <div>
-      <h1>does this work?</h1>
+      <header>
+        <h1>Game Night</h1>
+        <p>Looking to make your night more interesting? Why not a boardgame!</p>
+      </header>
       <Form handleSubmit={setGameOptions}/>
+      <GameGallery bookProps={games}/>
     </div>
   );
 }

@@ -4,26 +4,36 @@ import { useState, useEffect } from "react";
 
 function Form(props){
 
-     console.log(props.handleSubmit)
+     // console.log(props.handleSubmit)
 
-     const [players, setPlayers] = useState(2);
-     const [age, setAge] = useState(12)
+     const [inputValues, setInputValues] = useState({});
 
      const handlePlayerCount = (e)=> {
-          console.log(e.target.value);
-          setPlayers(e.target.value);
+          const choice1= {"players":e.target.value}
+          
+          setInputValues({
+               ...inputValues,
+               ...choice1,
+          });
      }
 
      const handlePlayerAge = (e) => {
-          console.log(e.target.value)
-          setAge(e.target.value);
+          const choice2 = {"age": e.target.value}
+
+          setInputValues({
+               ...inputValues,
+               ...choice2
+          })
      }
 
+     const handleUserChoices = (e) => {
+          props.handleSubmit(e, inputValues)
+     }
 
      return(
           <form 
                action=""
-               onSubmit={()=> {props.handleSubmit(age, players)}}
+               onSubmit={handleUserChoices}
           >
                <label htmlFor="numberOfPlayers">How Many Players are Joining the Game?</label>
                <select 
@@ -49,11 +59,10 @@ function Form(props){
                     id="ageOfPlayers"
                     onChange={handlePlayerAge}
                >
-                    <option value="placeholder" disabled></option>
-                    <option value="4">3 and Under</option>
-                    <option value="6">3-5</option>
-                    <option value="9">5-8</option>
-                    <option value="13">9-12</option>
+                    <option value="placeholder"></option>
+                    <option value="6">5 and Under</option>
+                    <option value="10">6-9</option>
+                    <option value="13">10-12</option>
                     <option value="18">12-17</option>
                     <option value="100">18+ </option>
                </select>
