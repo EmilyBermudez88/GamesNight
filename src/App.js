@@ -4,6 +4,7 @@ import {useEffect, useState} from 'react';
 
 import Form from './Form';
 import GameGallery from './GameGallery';
+import ShoppingCart from './ShoppingCart';
 
 //possible params to use for app:
 //name: string
@@ -50,6 +51,7 @@ function App() {
   return (
     <div>
       <header>
+        <ShoppingCart />
         <h1>Game Night</h1>
         <p>Looking to make your night more interesting? Why not a boardgame!</p>
       </header>

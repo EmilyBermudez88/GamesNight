@@ -1,8 +1,9 @@
 //GameGallery.js
+import { useState } from 'react';
 import IndividualGame from './IndividualGame';
 
 function GameGallery(props){
-     console.log(props.bookProps)
+     // console.log(props.bookProps)
      return(
           <section className="gallery">
                <h2>Take a Peak at Your Books!</h2>

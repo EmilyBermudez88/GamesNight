@@ -1,10 +1,22 @@
 //IndividualGame.js
+// import { useState } from 'react';
 
 function IndividualGame(props){
-     const handleClick = (e)=> {
-          console.log('clicked')
-          console.log(e)
+
+     // console.log(props);
+
+     // const [cartItem, setCartItem]= useState([]);
+
+     // const addToCart = (e)=> {
+     //      console.log(e.target)
+     //      setCartItem([...cartItem, e.target.className])
+     // }
+     
+     const handleClick = (e) => {
+          console.log(e.target.className);
      }
+
+
      return(
           <div>
                <img src={props.image} alt={props.altText}/>
@@ -13,7 +25,7 @@ function IndividualGame(props){
                <p>Price: {props.price}</p>
                <button
                     onClick={handleClick}
-                    className={props.sku}
+                    className={props.name}
                >Add to Cart</button>
           </div>
      )
@@ -21,4 +33,5 @@ function IndividualGame(props){
 export default IndividualGame;
 
 
-//create a click function 
+//so with what I currently have, it is updating the state of EACH cart item INDIVIDUALLY, instead of an overall state for all the items together
+     //so I need to be pushing a new like each time
