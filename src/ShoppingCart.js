@@ -11,17 +11,17 @@
 //from ShoppingCart, pass an anonymous function down to IndividualGame.js to fill 
      //inside IndividualGames, call that empty function, and plug in an object that you want to send back up to shopping cart 
      //inside shoppingCart, use the push() method to add to the array 
-import { useState } from 'react';
+// import { useState } from 'react';
 
-function ShoppingCart(){
+// function ShoppingCart(){
 
-     const [cartItem, setCartItem] = useState([]);
+//      const [cartItem, setCartItem] = useState([]);
 
-     return(
-          <div>
-               <h3>Added to the Cart</h3>
-          </div>
-     )
-}
+//      return(
+//           <div>
+//                <h3>Added to the Cart</h3>
+//           </div>
+//      )
+// }
 
-export default ShoppingCart;
+// export default ShoppingCart;

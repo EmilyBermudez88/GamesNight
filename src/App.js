@@ -51,12 +51,16 @@ function App() {
   return (
     <div>
       <header>
-        <ShoppingCart />
+        {/* <ShoppingCart /> */}
         <h1>Game Night</h1>
         <p>Looking to make your night more interesting? Why not a boardgame!</p>
       </header>
-      <Form handleSubmit={setGameOptions}/>
-      <GameGallery bookProps={games}/>
+      <main>
+        <div className="wrapper">
+          <Form handleSubmit={setGameOptions} />
+          <GameGallery gameProps={games} />
+        </div>
+      </main>  
     </div>
   );
 }
