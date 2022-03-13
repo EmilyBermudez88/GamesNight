@@ -56,6 +56,8 @@ html { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: 
 
 body {
   font-size: 125%;
+  background-image: url(./assets/tabletop.png);
+  background-size: cover;
   font-family:"Montserrat"
 }
 .wrapper {
@@ -94,10 +96,23 @@ button {
 
 /******** HEADER  ********/
 header {
-  min-height: 40vh
+  min-height: 40vh;
+  position:relative;
+  
+}
+header img{
+  position:absolute;
+  rotate: 45deg;
+  right:-30%;
+  top: -25%;
+  overflow:hidden;
 }
 
 /********** MAIN *********/
+
+main {
+  padding-top: 40px;
+}
 main .wrapper {
   display:flex;
   flex-direction:row;
@@ -108,14 +123,13 @@ main .wrapper {
 
 /******* FORM ********/
 .form{
-  width: 30%;
+  width: 25%;
   border-right: 3px solid black;
 }
 
 form{
   position:sticky;
-  top:0;
-  margin-top: 20px;
+  top:20px;
 }
 
 select {
@@ -126,7 +140,7 @@ select {
 
 /******** GALLERY ********/
 .gallery {
-  width: 70%;
+  width: 75%;
 }
 
 .gameGallery {
@@ -145,8 +159,11 @@ select {
   width: 30%;
   /* height: 300px; */
   margin-bottom: 30px;
-  padding: 15px;
+  padding: 25px;
   position:relative;
+  background-color: white;
+  border-radius: 35px;
+  box-shadow: 5px 5px 10px rgb(61, 61, 61);
 }
 
 .imgContainer {
@@ -157,6 +174,7 @@ select {
   object-fit: contain;
   height: 200px;
   object-position: center;
+  margin: 0 auto;
 }
 
 .gameText {
@@ -173,7 +191,7 @@ select {
 
 /****** MEDIA QUERIES *******/
 
-@media(max-width:950px){
+@media(max-width:1150px){
   .gameContainer {
     width: 45%;
   }

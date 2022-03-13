@@ -1,4 +1,5 @@
 import './App.css';
+import headerImage from  './assets/headerImage.png';
 import axios from 'axios';
 import {useEffect, useState} from 'react';
 
@@ -52,6 +53,7 @@ function App() {
     <div>
       <header>
         {/* <ShoppingCart /> */}
+        <img src={headerImage} alt="" />
         <h1>Game Night</h1>
         <p>Looking to make your night more interesting? Why not a boardgame!</p>
       </header>
