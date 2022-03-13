@@ -1,16 +1,8 @@
 //IndividualGame.js
-// import { useState } from 'react';
 
 function IndividualGame(props){
 
      // console.log(props);
-
-     // const [cartItem, setCartItem]= useState([]);
-
-     // const addToCart = (e)=> {
-     //      console.log(e.target)
-     //      setCartItem([...cartItem, e.target.className])
-     // }
      
      const itemToAdd = () => {
           const gameTitle = props.name;
@@ -42,6 +34,3 @@ function IndividualGame(props){
 }
 export default IndividualGame;
 
-
-//so with what I currently have, it is updating the state of EACH cart item INDIVIDUALLY, instead of an overall state for all the items together
-     //so I need to be pushing a new like each time

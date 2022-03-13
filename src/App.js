@@ -1,8 +1,9 @@
 import './App.css';
-import headerImage from  './assets/headerImage.png';
+// import headerImage from  './assets/headerImage.png';
 import axios from 'axios';
 import {useEffect, useState} from 'react';
 
+import Header from './Header';
 import Form from './Form';
 import GameGallery from './GameGallery';
 import ShoppingCart from './ShoppingCart';
@@ -51,12 +52,7 @@ function App() {
 
   return (
     <div>
-      <header>
-        {/* <ShoppingCart /> */}
-        <img src={headerImage} alt="" />
-        <h1>Game Night</h1>
-        <p>Looking to make your night more interesting? Why not a boardgame!</p>
-      </header>
+      <Header />
       <main>
         <div className="wrapper">
           <Form handleSubmit={setGameOptions} />
