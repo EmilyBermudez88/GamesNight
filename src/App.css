@@ -57,7 +57,7 @@ html { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: 
 body {
   font-size: 125%;
   background-image: url(./assets/tabletop.png);
-  background-size: cover;
+  background-size: contain;
   font-family:"Montserrat"
 }
 .wrapper {
@@ -97,6 +97,26 @@ img{
 button {
   border: 1px solid black;
   padding: 8px;
+}
+
+/***** NAV ******/
+nav {
+  position:fixed;
+  width:100%;
+  background-color:rgb(184, 172, 153);
+  z-index:20;
+}
+
+nav .wrapper {
+  display:flex;
+  justify-content: flex-end;
+}
+
+.shoppingCart {
+  font-size: 40px;
+  margin: 8px;
+  color:white;
+  text-align: right;
 }
 
 /******** HEADER  ********/

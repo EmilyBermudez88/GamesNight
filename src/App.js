@@ -22,13 +22,24 @@ import ShoppingCart from './ShoppingCart';
 
 function App() {
 
+  //state object of games from the API
   const [games, setGames] = useState([]);
 
-  //state object to be passed up from Form
+  //state object of user input to be passed up from Form
+  //set base call to have an API call fire on load
   const [playerCount, setPlayerCount] = useState({
       players: 4,
       age:12
   });
+
+  //state object to track which items have been selected to Add to the cart
+  const [cartItem, setCartItem] = useState([]);
+
+  const setCart = (gameToAdd) => {
+    // console.log(gameToAdd)
+    setCartItem(() => [...cartItem, gameToAdd])
+  }
+
 
   useEffect(()=>{
     const apiKey = 'oEDsQuBLZm'
@@ -45,18 +56,21 @@ function App() {
     })
   }, [playerCount]);
 
-  const setGameOptions = (e, param1)=>{
+  const setGameOptions = (e, userSelection)=>{
     e.preventDefault();
-    setPlayerCount(param1);
+    setPlayerCount(userSelection);
   }
 
   return (
     <div>
+      <ShoppingCart cart={cartItem}/>
       <Header />
       <main>
         <div className="wrapper">
           <Form handleSubmit={setGameOptions} />
-          <GameGallery gameProps={games} />
+          <GameGallery 
+            gameProps={games} 
+            handleClick={setCart}/>
         </div>
       </main>  
     </div>

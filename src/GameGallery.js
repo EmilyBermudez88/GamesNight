@@ -3,14 +3,14 @@ import { useState } from 'react';
 import IndividualGame from './IndividualGame';
 
 function GameGallery(props){
-     // console.log(props.bookProps)
+     // console.log(props.handleClick)
 
-     const [cartItem, setCartItem] = useState([]);
+     // const [cartItem, setCartItem] = useState([]);
 
-     const setCart = (gameToAdd) => {
-          console.log(gameToAdd)
-          setCartItem(() => [...cartItem, gameToAdd])
-     }
+     // const setCart = (gameToAdd) => {
+     //      console.log(gameToAdd)
+     //      setCartItem(() => [...cartItem, gameToAdd])
+     // }
 
      return(
           <section className="gallery">
@@ -26,7 +26,7 @@ function GameGallery(props){
                                    age={game.min_age}
                                    price={game.price_text}
                                    sku={game.sku}
-                                   handleClick={setCart}
+                                   handleClick={props.handleClick}
                               />
                          )
                          })
