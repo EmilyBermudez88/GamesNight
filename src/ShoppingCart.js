@@ -14,25 +14,44 @@
 
 
 // import { useState } from 'react';
-import ReactDOM from 'react-dom';
+import { useState } from 'react';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
+import { faXmark } from '@fortawesome/free-solid-svg-icons';
+import CartMenu from './CartMenu';
 
 
 function ShoppingCart(props){
 
      console.log(props.cart);
 
-     const displayCart =()=>{
-          console.log('show');
+     const [displayCart, setDisplayCart] = useState(false)
+
+     const handleClick =()=>{
+          setDisplayCart(!displayCart);
      }
 
      return(
           <nav>
                <div className="wrapper">
-                    <FontAwesomeIcon 
-                         icon={faCartShopping} className="shoppingCart" 
-                         onClick={displayCart}/>
+                    <button
+                         onClick={handleClick}>
+                         <FontAwesomeIcon
+                              icon={faCartShopping} className="shoppingCart"
+                         />
+                         <FontAwesomeIcon icon={faXmark} />
+                         {
+                              displayCart===true  
+                                   ? props.cart.map((item)=>{
+                                        return(
+                                             <CartMenu 
+                                                  name={item.name}
+                                                  price={item.price}/>
+                                        )
+                                   })
+                                   : null
+                         }
+                    </button>               
                </div>
                
           </nav>

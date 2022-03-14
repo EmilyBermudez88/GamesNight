@@ -112,6 +112,10 @@ nav .wrapper {
   justify-content: flex-end;
 }
 
+nav button {
+  background-color: transparent;
+  border:none;
+}
 .shoppingCart {
   font-size: 40px;
   margin: 8px;

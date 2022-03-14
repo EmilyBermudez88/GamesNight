@@ -11,8 +11,11 @@ function IndividualGame(props){
      }
 
 
+
      return(
-          <div className="gameContainer">
+          // need to add in the key property- which I think should be at top most section
+          //also we should have a ul and gameContainer be an LI
+          <li className="gameContainer">
                <div className="imgContainer">
                     <img src={props.image} alt={props.altText} />
                </div>
@@ -26,10 +29,9 @@ function IndividualGame(props){
                               className={props.name}
                          >Add to Cart</button>
                     </div>
-               
                </div>
                
-          </div>
+          </li>
      )
 }
 export default IndividualGame;
