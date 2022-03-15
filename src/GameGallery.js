@@ -1,5 +1,4 @@
 //GameGallery.js
-import { useState } from 'react';
 import IndividualGame from './IndividualGame';
 
 function GameGallery(props){

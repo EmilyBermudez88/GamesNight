@@ -1,10 +1,8 @@
 //Form.js
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 function Form(props){
-
-     // console.log(props.handleSubmit)
 
      const [inputValues, setInputValues] = useState({});
 
