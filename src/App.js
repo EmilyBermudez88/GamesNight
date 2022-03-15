@@ -36,10 +36,16 @@ function App() {
   const [cartItem, setCartItem] = useState([]);
 
   const setCart = (gameToAdd) => {
-    // console.log(gameToAdd)
     setCartItem(() => [...cartItem, gameToAdd])
   }
 
+  const removeCartItem = (param)=> {
+    console.log('outta there')
+    console.log(param)
+
+    // const found = cartItem.find(({name}) => name===param)
+    // console.log(found);
+  }
 
   useEffect(()=>{
     const apiKey = 'oEDsQuBLZm'
@@ -63,7 +69,9 @@ function App() {
 
   return (
     <div>
-      <ShoppingCart cart={cartItem}/>
+      <ShoppingCart 
+        cart={cartItem}
+        removeCartItem={removeCartItem}/>
       <Header />
       <main>
         <div className="wrapper">
@@ -73,6 +81,10 @@ function App() {
             handleClick={setCart}/>
         </div>
       </main>  
+      <footer>
+        <p>Created by Emily Read @ <a href="https://junocollege.com/" target="_blank" rel="noopener noreferrer">Juno College</a></p>
+        <p>API courtesy of <a href="https://www.boardgameatlas.com/api/docs" target="_blank" rel="noopener noreferrer">Board Game Atlas</a></p>
+      </footer>
     </div>
   );
 }

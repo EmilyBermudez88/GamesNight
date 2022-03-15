@@ -3,7 +3,7 @@ import { useState } from 'react';
 import IndividualGame from './IndividualGame';
 
 function GameGallery(props){
-     // console.log(props.handleClick)
+     // console.log(props)
 
      // const [cartItem, setCartItem] = useState([]);
 
@@ -14,12 +14,11 @@ function GameGallery(props){
 
      return(
           <section className="gallery">
-               <h2>Take a Peak at Your Books!</h2>
                <ul className="gameGallery">
                     {props.gameProps.map((game)=>{
                          return(
                               <IndividualGame 
-                                   key={game.id}
+                                   key={game.sku}
                                    image={game.images.medium}
                                    altText={game.description_preview}
                                    name={game.name}

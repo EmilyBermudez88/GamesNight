@@ -70,10 +70,10 @@ h2, h3, p{
   margin:0;
 }
 
-h1{
+/* h1{
   font-family:"Bubblegum Sans";
   font-size: 5rem;
-}
+} */
 
 h2{
   text-transform: uppercase;
@@ -94,9 +94,24 @@ img{
   max-width:100%
 }
 
+ul{
+  list-style-type: none;
+  margin-top:0;
+}
+
+a{
+  color:white;
+  text-decoration: none;
+  font-weight:bolder;
+}
+a:hover {
+  color:rgb(73, 68, 59)
+}
+
 button {
   border: 1px solid black;
   padding: 8px;
+  z-index: 10;
 }
 
 /***** NAV ******/
@@ -109,7 +124,9 @@ nav {
 
 nav .wrapper {
   display:flex;
+  flex-direction: column;
   justify-content: flex-end;
+  align-items:flex-end;
 }
 
 nav button {
@@ -123,33 +140,47 @@ nav button {
   text-align: right;
 }
 
+nav h2 {
+  margin-left: 0;
+}
+.cartMenu {
+  width: 200px;
+}
+
 /******** HEADER  ********/
 header {
-  min-height: 400px;
+  min-height: 480px;
   position:relative;
   display:flex;
   flex-direction: column;
   align-items: flex-end;
   justify-content: center;  
 }
-header img{
+.scrabbleBoard{
   position:absolute;
   rotate: -30deg;
-  left:-300px;
-  top: -50%;
+  left:-200px;
+  top: -40%;
   overflow:hidden;
   max-width: 800px;
 }
 
-header h1,
+/* header h1, */
 header p {
   margin-right: 40px;
 }
 
+h1{
+  position:absolute;
+  right: 100px;
+  top: 25%;
+  width: 500px;
+}
 /********** MAIN *********/
 
 main {
   padding-top: 40px;
+  background-color: rgba(255,255,255,0.4);
 }
 .wrapper {
   display:flex;
@@ -180,6 +211,7 @@ select {
 /******** GALLERY ********/
 .gallery {
   width: 75%;
+  /* background-color: white; */
 }
 
 .gameGallery {
@@ -201,8 +233,8 @@ select {
   padding: 25px;
   position:relative;
   background-color: white;
-  border-radius: 35px;
-  box-shadow: 5px 5px 10px rgb(61, 61, 61);
+  /* border-radius: 35px; */
+  /* box-shadow: 5px 5px 10px rgb(61, 61, 61); */ 
 }
 
 .imgContainer {
@@ -230,7 +262,13 @@ select {
   margin:5px 0 10px 0;
 }
 
-
+/****** FOOTER *******/
+footer {
+  background-color: rgb(184, 172, 153);
+  color:white;
+  text-align: center;
+  padding: 8px 0;
+}
 
 /****** MEDIA QUERIES *******/
 

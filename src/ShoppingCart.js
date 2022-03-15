@@ -23,39 +23,58 @@ import CartMenu from './CartMenu';
 
 function ShoppingCart(props){
 
-     console.log(props.cart);
+     console.log(props);
 
      const [displayCart, setDisplayCart] = useState(false)
 
-     const handleClick =()=>{
+     const showCart =(e)=>{
           setDisplayCart(!displayCart);
+     }
+
+     const closeCart = () => {
+          setDisplayCart(!displayCart);
+     }
+
+     const click = (removedItem)=> {
+          props.removeCartItem(removedItem);
      }
 
      return(
           <nav>
                <div className="wrapper">
                     <button
-                         onClick={handleClick}>
+                         onClick={showCart}>
                          <FontAwesomeIcon
                               icon={faCartShopping} className="shoppingCart"
                          />
-                         <FontAwesomeIcon icon={faXmark} />
-                         {
-                              displayCart===true  
-                                   ? props.cart.map((item)=>{
-                                        return(
-                                             <CartMenu 
+                    </button>
+                         
+                    {
+                         displayCart===true  
+                              ? <div>
+                                   <FontAwesomeIcon 
+                                        icon={faXmark}
+                                        onClick={closeCart}/>
+                                   {
+                                        props.cart.map((item)=>{
+                                             return( <CartMenu
                                                   name={item.name}
-                                                  price={item.price}/>
-                                        )
-                                   })
-                                   : null
-                         }
-                    </button>               
+                                                  price={item.price} 
+                                                  handleClick={click}
+                                                  />
+                                             )
+                                        })
+                                   }     
+                              </div>
+                         : null
+                    }
                </div>
-               
           </nav>
      )
 }
 
 export default ShoppingCart;
+
+//the problem here is that we are not passing down the full array right now, we are passing down just the objects to go inside
+     //so the array of items is still being held up inside App.js - it is accessible at ShoppingCart via props
+     //so maybe need to send a function down, but how? 

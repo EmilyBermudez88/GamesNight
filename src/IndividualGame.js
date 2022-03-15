@@ -2,6 +2,7 @@
 
 function IndividualGame(props){
 
+     //key is undefined right now!!
      // console.log(props);
      
      const itemToAdd = () => {
@@ -15,7 +16,9 @@ function IndividualGame(props){
      return(
           // need to add in the key property- which I think should be at top most section
           //also we should have a ul and gameContainer be an LI
-          <li className="gameContainer">
+          <li 
+               className="gameContainer"
+               >
                <div className="imgContainer">
                     <img src={props.image} alt={props.altText} />
                </div>
