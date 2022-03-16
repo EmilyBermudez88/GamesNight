@@ -35,16 +35,24 @@ function App() {
   //state object to track which items have been selected to Add to the cart
   const [cartItem, setCartItem] = useState([]);
 
+  //function to add items to cart (called in IndividualGame)
   const setCart = (gameToAdd) => {
     setCartItem(() => [...cartItem, gameToAdd])
   }
 
-  const removeCartItem = (param)=> {
-    console.log('outta there')
-    console.log(param)
-
-    // const found = cartItem.find(({name}) => name===param)
-    // console.log(found);
+  //function to remove items from cart (called in CartMenu)
+  const removeCartItem = (gameParam)=> {
+    let index
+    //pull index of each item inside cart
+    for (let i = 0; i < cartItem.length; i++) {
+      if (cartItem[i].name === gameParam) {
+        index= i;
+      }
+    }
+    //with index values, create new 
+    const newCart= Array.from(cartItem);
+    newCart.splice(index, 1);
+    setCartItem(newCart);
   }
 
   useEffect(()=>{
@@ -57,7 +65,6 @@ function App() {
         lt_min_age: playerCount.age
       }
     }).then((response) => {
-      // console.log(response.data.games);
       setGames(response.data.games);
     })
   }, [playerCount]);

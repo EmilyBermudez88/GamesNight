@@ -5,32 +5,33 @@ import { faXmark } from '@fortawesome/free-solid-svg-icons';
 
 function CartMenu (props){
 
-     console.log(props);
-     //here we are seeing all the items we added to the cart, plus the handleClick function inside each 
+     // console.log(props);
 
-     const removeItem = (e) => {
+     //function passed down from App.js - pull name from game selected
+     const removeItem = () => {
           const itemToRemove = props.name;
           props.handleClick(itemToRemove); 
      }
 
      return(
-          <ul className="cartMenu">
-               <li>
+          <li>
+               <div className="cartImage">
+                    <img src={props.image} alt={`picture of board game ${props.name}`} />
+               </div>
+               <div className="cartText">
                     <h2>{props.name}</h2>
                     <p>{props.price}</p>
                     <button
                          onClick={removeItem}
                          className={props.name}>
-                         
+
                          <FontAwesomeIcon
-                              icon={faXmark} 
-                              className="shoppingCart"
-                              
+                              icon={faXmark}
                          />
-                         Remove From Cart
-                    </button>
-               </li>
-          </ul>
+                         Remove
+                    </button>    
+               </div>     
+          </li>
      )
 }
 

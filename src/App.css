@@ -58,7 +58,7 @@ body {
   font-size: 125%;
   background-image: url(./assets/tabletop.png);
   background-size: contain;
-  font-family:"Montserrat"
+  font-family:"Montserrat";
 }
 .wrapper {
   max-width:1200px;
@@ -70,18 +70,10 @@ h2, h3, p{
   margin:0;
 }
 
-/* h1{
-  font-family:"Bubblegum Sans";
-  font-size: 5rem;
-} */
-
 h2{
   text-transform: uppercase;
-  margin-left: 40px;
-}
-
-h3{
-  margin-bottom: 10px;
+  margin: 0 0 10px 40px;
+  font-size: 1.3rem;
   text-align: center;
 }
 
@@ -120,6 +112,7 @@ nav {
   width:100%;
   background-color:rgb(184, 172, 153);
   z-index:20;
+  overflow:hidden;
 }
 
 nav .wrapper {
@@ -132,19 +125,83 @@ nav .wrapper {
 nav button {
   background-color: transparent;
   border:none;
+  padding: 5px;
+  margin-top: 5px;
 }
 .shoppingCart {
   font-size: 40px;
-  margin: 8px;
+  margin-top: 13px;
   color:white;
   text-align: right;
 }
 
-nav h2 {
-  margin-left: 0;
-}
+/******* SHOPPING CART  *********/
+
 .cartMenu {
-  width: 200px;
+  padding-left: 0;
+  position:relative;
+}
+
+.cartMenu .close{
+  position:absolute;
+  top: -20px;
+  padding:0 5px;
+  color:rgb(90, 84, 74);
+  background-color: transparent;
+  font-size: 2rem;
+  transition: 0.4s;
+}
+
+.cartMenu .close:hover,
+.cartMenu .close:focus {
+  color:rgba(255,255,255,0.8);
+  background-color:rgb(104, 97, 86);
+}
+
+.fa-xmark{
+  font-size: 1rem;
+  margin:0 8px 0 0;
+  font-family:"Montserrat";
+}
+
+.cartMenu li {
+  display:flex;
+  flex-direction:row;
+  margin-top: 30px;
+  width: 320px;
+  background-color:rgba(255,255,255,0.3);
+}
+
+.cartImage{
+  max-width: 100px;
+  display:flex;
+  align-items: center;
+  margin-right:20px;
+  padding: 8px;
+  background-color:white;
+}
+
+.cartText{
+  display:flex;
+  flex-direction:column;
+  justify-content: center;
+  padding: 10px 0;
+}
+
+.cartMenu h2 {
+  margin: 0 0 5px 0;
+  text-align: left;
+}
+
+.cartText button {
+  font-size: 1rem;
+  text-align: left;
+  color:rgb(71, 66, 58);
+  transition: 0.3s;
+}
+
+.cartText button:hover {
+  color:white;
 }
 
 /******** HEADER  ********/
@@ -180,7 +237,7 @@ h1{
 
 main {
   padding-top: 40px;
-  background-color: rgba(255,255,255,0.4);
+  background-color: rgba(255,255,255,0.3);
 }
 .wrapper {
   display:flex;
@@ -198,14 +255,21 @@ main {
 
 form{
   position:sticky;
-  top:20px;
+  top:100px;
   padding-right:10px;
 }
 
 select {
   display:block;
   margin: 20px 0;
+  padding: 3px 10px;
   width: 80%;
+  background-color: rgba(255,255,255,0.8);
+  border:none;
+}
+
+form button {
+  background-color: rgba(255,255,255,0.4);
 }
 
 /******** GALLERY ********/
@@ -232,13 +296,19 @@ select {
   margin-bottom: 30px;
   padding: 25px;
   position:relative;
-  background-color: white;
-  /* border-radius: 35px; */
-  /* box-shadow: 5px 5px 10px rgb(61, 61, 61); */ 
+  display:flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color:rgba(255,255,255,0.6);
+  /* border: 1px solid rgba(0,0,0,0.2); */
+  box-shadow: 2px 2px 8px rgba(64, 64, 64, 0.1), -2px -2px 8px rgba(66, 66, 66, 0.1);
 }
 
 .imgContainer {
   margin-bottom: 10px;
+  padding: 8px 0;
+  background-color:white;
+  border:1px solid black;
 }
 
 .imgContainer img {
@@ -308,6 +378,13 @@ footer {
   .wrapper {
     flex-direction:column;
   }
+
+  .scrabbleBoard{
+    max-width: 400px;
+    left:-20px;
+    top:-20px;
+  }
+
   .form{
     border-right:none;
     width: 80%;
@@ -329,5 +406,11 @@ footer {
   } */
   .imgContainer img {
     height: 300px;
+  }
+}
+
+@media(max-width: 400px){
+  .cartMenu li {
+    width: 290px;
   }
 }

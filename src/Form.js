@@ -4,8 +4,10 @@ import { useState } from "react";
 
 function Form(props){
 
+     //state to gather values of selects according to user selection
      const [inputValues, setInputValues] = useState({});
 
+     //function to gather player count selection
      const handlePlayerCount = (e)=> {
           const choice1= {"players":e.target.value}
           
@@ -15,6 +17,7 @@ function Form(props){
           });
      }
 
+     //function to gather minimum age of players 
      const handlePlayerAge = (e) => {
           const choice2 = {"age": e.target.value}
 
@@ -24,6 +27,7 @@ function Form(props){
           })
      }
 
+     //function to call handleSubmit (passed down from App.js) with user input passed back up
      const handleUserChoices = (e) => {
           props.handleSubmit(e, inputValues)
      }
@@ -40,7 +44,7 @@ function Form(props){
                          id="numberOfPlayers"
                          onChange={handlePlayerCount}
                     >
-                         <option value="placeholder" disabled></option>
+                         <option value="placeholder"></option>
                          <option value="1">1</option>
                          <option value="2">2</option>
                          <option value="3">3</option>

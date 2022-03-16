@@ -3,12 +3,14 @@
 function IndividualGame(props){
 
      //key is undefined right now!!
-     // console.log(props);
+     // console.log(props.something);
      
      const itemToAdd = () => {
           const gameTitle = props.name;
           const gamePrice = props.price;
-          props.handleClick({"name":gameTitle, "price":gamePrice});
+          const key = props.infoToPass
+          const image = props.image;
+          props.handleClick({"name":gameTitle, "price":gamePrice, "key":key, "image": image});
      }
 
 
@@ -20,10 +22,10 @@ function IndividualGame(props){
                className="gameContainer"
                >
                <div className="imgContainer">
-                    <img src={props.image} alt={props.altText} />
+                    <img src={props.image} alt={`picture of board game ${props.altText}`}/>
                </div>
                <div className="gameText">
-                    <h3>{props.name}</h3>
+                    <h2>{props.name}</h2>
                     <div className="gameDetails">
                          <p>Min Age: {props.age}</p>
                          <p className="price">Price: {props.price}</p>

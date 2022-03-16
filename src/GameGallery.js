@@ -2,14 +2,7 @@
 import IndividualGame from './IndividualGame';
 
 function GameGallery(props){
-     // console.log(props)
-
-     // const [cartItem, setCartItem] = useState([]);
-
-     // const setCart = (gameToAdd) => {
-     //      console.log(gameToAdd)
-     //      setCartItem(() => [...cartItem, gameToAdd])
-     // }
+     // console.log(props);
 
      return(
           <section className="gallery">
@@ -17,7 +10,8 @@ function GameGallery(props){
                     {props.gameProps.map((game)=>{
                          return(
                               <IndividualGame 
-                                   key={game.sku}
+                                   key={game.id}
+                                   infoToPass={game.id}
                                    image={game.images.medium}
                                    altText={game.description_preview}
                                    name={game.name}
