@@ -306,7 +306,7 @@ form button {
 
 .imgContainer {
   margin-bottom: 10px;
-  padding: 8px 0;
+  padding: 8px;
   background-color:white;
   border:1px solid black;
 }
@@ -343,12 +343,22 @@ footer {
 /****** MEDIA QUERIES *******/
 
 @media(max-width:1150px){
+  h1{
+    width:400px;
+    top: 35%;
+    right:5%;
+  }
   .gameContainer {
     width: 45%;
   }
 }
 
 @media(max-width: 900px){
+  .scrabbleBoard{
+    max-width: 600px;
+    top:-20px;
+    left:-200px;
+  }
   h3{
     font-size: 1.2rem;
   }
@@ -361,7 +371,11 @@ footer {
 }
 
 @media(max-width: 765px){
-
+  .scrabbleBoard{
+    max-width: 430px;
+    top: 0px;
+    left:-70px;
+  }
   .gameContainer {
     width: 80%;
     margin: 15px auto;
@@ -369,6 +383,9 @@ footer {
 }
 
 @media(max-width: 660px){
+  h1{
+    top: 40%;
+  }
   label{
     font-size:1rem;
   }
@@ -379,10 +396,17 @@ footer {
     flex-direction:column;
   }
 
+  header{
+    min-height: 400px;
+  }
+  h1{
+    width: 300px;
+  }
+
   .scrabbleBoard{
     max-width: 400px;
     left:-20px;
-    top:-20px;
+    top:-40px;
   }
 
   .form{
@@ -401,6 +425,10 @@ footer {
     width: 100%;
   }
 
+  .gameGallery {
+    padding-left:0;
+  }
+
   /* h3{
     font-size: 1.4rem;
   } */
@@ -412,5 +440,8 @@ footer {
 @media(max-width: 400px){
   .cartMenu li {
     width: 290px;
+  }
+  .imgContainer img {
+    height: 230px;
   }
 }

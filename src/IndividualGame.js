@@ -28,7 +28,7 @@ function IndividualGame(props){
                     <h2>{props.name}</h2>
                     <div className="gameDetails">
                          <p>Min Age: {props.age}</p>
-                         <p className="price">Price: {props.price}</p>
+                         <p className="price">Price: ${props.price}</p>
                          <button
                               onClick={itemToAdd}
                               className={props.name}

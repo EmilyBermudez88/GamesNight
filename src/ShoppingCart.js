@@ -10,9 +10,12 @@ import CartMenu from './CartMenu';
 
 function ShoppingCart(props){
 
-     // console.log(props);
+     // console.log(props.cart[1].price);
 
+     //state to show or hide cart 
      const [displayCart, setDisplayCart] = useState(false)
+     //state to calculate cart total
+     const [total, setTotal]= useState([]);
 
      //show/hide cart based on click of shopping cart
      const showCart =(e)=>{
@@ -22,6 +25,13 @@ function ShoppingCart(props){
      const closeCart = () => {
           setDisplayCart(!displayCart);
      }
+     //loop through props.cart to pull prices and push them into total 
+     // const cart= props.cart;
+     // for(let i = 0; i < cart.length; i++){
+     //      const newTotal = Array.from(cart);
+     //      setTotal(newTotal);
+     //      console.log(newTotal);
+     // }
 
      //function passed down from App.js to remove cart items
      const click = (removedItem)=> {

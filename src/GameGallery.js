@@ -16,7 +16,7 @@ function GameGallery(props){
                                    altText={game.description_preview}
                                    name={game.name}
                                    age={game.min_age}
-                                   price={game.price_text}
+                                   price={game.price_ca}
                                    sku={game.sku}
                                    handleClick={props.handleClick}
                               />

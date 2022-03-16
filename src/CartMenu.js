@@ -20,7 +20,7 @@ function CartMenu (props){
                </div>
                <div className="cartText">
                     <h2>{props.name}</h2>
-                    <p>{props.price}</p>
+                    <p>{`$${props.price}`}</p>
                     <button
                          onClick={removeItem}
                          className={props.name}>
