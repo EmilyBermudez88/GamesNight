@@ -15,7 +15,7 @@ function ShoppingCart(props){
      //state to show or hide cart 
      const [displayCart, setDisplayCart] = useState(false)
      //state to calculate cart total
-     const [total, setTotal]= useState([]);
+     // const [total, setTotal]= useState([]);
 
      //show/hide cart based on click of shopping cart
      const showCart =(e)=>{

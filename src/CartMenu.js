@@ -16,7 +16,7 @@ function CartMenu (props){
      return(
           <li>
                <div className="cartImage">
-                    <img src={props.image} alt={`picture of board game ${props.name}`} />
+                    <img src={props.image} alt={`board game ${props.name}`} />
                </div>
                <div className="cartText">
                     <h2>{props.name}</h2>
