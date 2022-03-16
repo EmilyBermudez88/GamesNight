@@ -22,7 +22,7 @@ function IndividualGame(props){
                className="gameContainer"
                >
                <div className="imgContainer">
-                    <img src={props.image} alt={`picture of board game ${props.altText}`}/>
+                    <img src={props.image} alt={`board game ${props.name}`}/>
                </div>
                <div className="gameText">
                     <h2>{props.name}</h2>
