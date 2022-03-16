@@ -1,6 +1,6 @@
 //ShoppingCart.js
 
-// import { useState } from 'react';
+
 import { useState } from 'react';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
@@ -10,12 +10,10 @@ import CartMenu from './CartMenu';
 
 function ShoppingCart(props){
 
-     // console.log(props.cart[1].price);
+     // console.log(props.cart);
 
      //state to show or hide cart 
      const [displayCart, setDisplayCart] = useState(false)
-     //state to calculate cart total
-     // const [total, setTotal]= useState([]);
 
      //show/hide cart based on click of shopping cart
      const showCart =(e)=>{
@@ -25,13 +23,19 @@ function ShoppingCart(props){
      const closeCart = () => {
           setDisplayCart(!displayCart);
      }
-     //loop through props.cart to pull prices and push them into total 
-     // const cart= props.cart;
-     // for(let i = 0; i < cart.length; i++){
-     //      const newTotal = Array.from(cart);
-     //      setTotal(newTotal);
-     //      console.log(newTotal);
-     // }
+
+     //loop through props.cart to pull prices and push them into one array
+     const cart = props.cart;
+     const newTotal = [];
+     for (let i = 0; i < cart.length; i++) {
+          console.log(cart[i].price);
+          newTotal.push(parseFloat(cart[i].price));
+     }
+     //now loop through that array to get the sum of all it's prices:
+     let cartSum = 0;
+     for (let i=0; i < newTotal.length; i++){
+          cartSum +=newTotal[i];
+     }     
 
      //function passed down from App.js to remove cart items
      const click = (removedItem)=> {
@@ -68,8 +72,8 @@ function ShoppingCart(props){
                                              })
                                         }
                                         <div className="cartTotal">
-                                             <h3>Your Total: 
-                                             
+                                             <h3>Your Total: $
+                                             {cartSum}
                                              </h3>
                                         </div>
                                    </>

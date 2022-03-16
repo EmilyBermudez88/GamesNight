@@ -35,6 +35,12 @@ function App() {
   //state object to track which items have been selected to Add to the cart
   const [cartItem, setCartItem] = useState([]);
 
+  //function to set games based on user selection
+  const setGameOptions = (e, userSelection) => {
+    e.preventDefault();
+    setPlayerCount(userSelection);
+  }
+
   //function to add items to cart (called in IndividualGame)
   const setCart = (gameToAdd) => {
     setCartItem(() => [...cartItem, gameToAdd])
@@ -69,10 +75,6 @@ function App() {
     })
   }, [playerCount]);
 
-  const setGameOptions = (e, userSelection)=>{
-    e.preventDefault();
-    setPlayerCount(userSelection);
-  }
 
   return (
     <div>
