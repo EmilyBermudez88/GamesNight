@@ -48,7 +48,7 @@ p, select {
 
 ul{
   list-style-type: none;
-  margin-top:0;
+  margin:0;
 }
 
 a{
@@ -64,6 +64,17 @@ button {
   border: 1px solid black;
   padding: 8px;
   z-index: 10;
+  font-family: "Montserrat";
+  font-size: 1rem;
+  text-transform:uppercase;
+}
+
+hr{
+  margin: 15px 0;
+  height:1px;
+  width:290px;
+  background-color:black;
+  border: 0 none;
 }
 
 /***** NAV ******/
@@ -80,6 +91,7 @@ nav .wrapper {
   flex-direction: column;
   justify-content: flex-end;
   align-items:flex-end;
+  position:relative;
 }
 
 nav button {
@@ -89,10 +101,22 @@ nav button {
   margin-top: 5px;
 }
 .shoppingCart {
-  font-size: 40px;
-  margin-top: 13px;
+  font-size: 35px;
+  margin: 5px 0;
   color:white;
   text-align: right;
+}
+
+.totalCartPurchases {
+  position:absolute;
+  top: 32px;
+  right:38px;
+  z-index: 20;
+  padding: 2px 7px;
+  font-weight:bolder;
+  color:rgb(255, 255, 255);
+  background-color: rgb(192, 93, 35);
+  border-radius:50%;
 }
 
 /******* SHOPPING CART  *********/
@@ -164,8 +188,8 @@ nav button {
   color:white;
 }
 
-.cartTotal{
-  margin-top: 15px;
+.totalCost{
+  margin: 15px 0;
 }
 
 /******** HEADER  ********/
@@ -219,7 +243,7 @@ main {
 
 form{
   position:sticky;
-  top:100px;
+  top:85px;
   padding-right:10px;
 }
 
@@ -256,7 +280,6 @@ form button {
 
 .gameContainer {
   width: 30%;
-  /* height: 300px; */
   margin-bottom: 30px;
   padding: 25px;
   position:relative;
@@ -264,7 +287,6 @@ form button {
   flex-direction: column;
   justify-content: space-between;
   background-color:rgba(255,255,255,0.6);
-  /* border: 1px solid rgba(0,0,0,0.2); */
   box-shadow: 2px 2px 8px rgba(64, 64, 64, 0.1), -2px -2px 8px rgba(66, 66, 66, 0.1);
 }
 
@@ -294,6 +316,19 @@ form button {
 
 .price {
   margin:5px 0 10px 0;
+}
+
+.gameContainer button {
+  background-color:rgba(231, 129, 71, 0.5);
+  color: black;
+  transition: 0.4s;
+  padding: 8px 10px;
+}
+
+.gameContainer button:hover,
+.gameContainer button:focus {
+  background-color:rgba(243, 144, 87, 1);
+  color:white;
 }
 
 /****** FOOTER *******/
