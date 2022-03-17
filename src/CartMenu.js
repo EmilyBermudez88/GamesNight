@@ -24,7 +24,6 @@ function CartMenu (props){
                     <button
                          onClick={removeItem}
                          className={props.name}>
-
                          <FontAwesomeIcon
                               icon={faXmark}
                          />

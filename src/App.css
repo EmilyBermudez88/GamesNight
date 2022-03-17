@@ -56,7 +56,8 @@ a{
   text-decoration: none;
   font-weight:bolder;
 }
-a:hover {
+a:hover,
+a:focus {
   color:rgb(73, 68, 59)
 }
 
@@ -105,6 +106,12 @@ nav button {
   margin: 5px 0;
   color:white;
   text-align: right;
+  transition: 0.4s;
+}
+
+.shoppingCart:hover,
+.shoppingCart:focus {
+  color:rgb(192, 93, 35);
 }
 
 .totalCartPurchases {
@@ -184,7 +191,8 @@ nav button {
   transition: 0.3s;
 }
 
-.cartText button:hover {
+.cartText button:hover,
+.cartText button:focus {
   color:white;
 }
 
@@ -194,7 +202,7 @@ nav button {
 
 /******** HEADER  ********/
 header {
-  min-height: 480px;
+  min-height: 510px;
   position:relative;
   display:flex;
   flex-direction: column;
@@ -203,11 +211,11 @@ header {
 }
 .scrabbleBoard{
   position:absolute;
-  rotate: -30deg;
-  left:-200px;
-  top: -40%;
+  rotate: -40deg;
+  left:-90px;
+  top: -45%;
   overflow:hidden;
-  max-width: 800px;
+  max-width: 780px;
 }
 
 /* header h1, */
@@ -225,7 +233,7 @@ h1{
 
 main {
   padding-top: 40px;
-  background-color: rgba(255,255,255,0.3);
+  background-color: rgba(255,255,255,0.2);
 }
 .wrapper {
   display:flex;
@@ -343,9 +351,12 @@ footer {
 
 @media(max-width:1150px){
   h1{
-    width:400px;
+    width:430px;
     top: 35%;
     right:5%;
+  }
+  .scrabbleBoard{
+    left: -120px;
   }
   .gameContainer {
     width: 45%;
@@ -354,9 +365,13 @@ footer {
 
 @media(max-width: 900px){
   .scrabbleBoard{
-    max-width: 600px;
-    top:-20px;
-    left:-200px;
+    max-width: 580px;
+    top:-40px;
+    rotate: -48deg;
+    /* left:-200px; */
+  }
+  h1{
+    width: 410px;
   }
   h3{
     font-size: 1.2rem;
@@ -371,9 +386,10 @@ footer {
 
 @media(max-width: 765px){
   .scrabbleBoard{
-    max-width: 430px;
+    max-width: 440px;
     top: 0px;
-    left:-70px;
+    left:-80px;
+    rotate: -52deg;
   }
   .gameContainer {
     width: 80%;
@@ -382,8 +398,12 @@ footer {
 }
 
 @media(max-width: 660px){
+  .scrabbleBoard{
+    top: -50px;
+  }
   h1{
     top: 40%;
+    width: 380px;
   }
   label{
     font-size:1rem;
@@ -396,7 +416,7 @@ footer {
   }
 
   header{
-    min-height: 400px;
+    min-height: 380px;
   }
   h1{
     width: 300px;
@@ -404,8 +424,8 @@ footer {
 
   .scrabbleBoard{
     max-width: 400px;
-    left:-20px;
-    top:-40px;
+    left:-100px;
+    top:-100px;
   }
 
   .form{
@@ -417,7 +437,7 @@ footer {
   }
   select{
     width: 150px;
-    margin: 20px auto;
+    margin: 15px auto;
   }
 
   .gallery{
@@ -428,15 +448,20 @@ footer {
     padding-left:0;
   }
 
-  /* h3{
-    font-size: 1.4rem;
-  } */
   .imgContainer img {
     height: 300px;
   }
 }
 
 @media(max-width: 400px){
+  h1{
+    top: 45%;
+    width: 270px;
+  }
+  .scrabbleBoard{
+    top: -120px;
+  }
+
   .cartMenu li {
     width: 290px;
   }
