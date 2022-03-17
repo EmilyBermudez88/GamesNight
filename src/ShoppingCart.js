@@ -27,7 +27,6 @@ function ShoppingCart(props){
     const cart = props.cart;
     const newTotal = [];
     for (let i = 0; i < cart.length; i++) {
-        console.log(cart[i].price);
         newTotal.push(parseFloat(cart[i].price));
     }
      //now loop through that array to get the sum of all it's prices:

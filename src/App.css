@@ -213,12 +213,11 @@ header {
   position:absolute;
   rotate: -40deg;
   left:-90px;
-  top: -45%;
+  top: -50%;
   overflow:hidden;
   max-width: 780px;
 }
 
-/* header h1, */
 header p {
   margin-right: 40px;
 }
@@ -240,7 +239,6 @@ main {
   flex-direction:row;
   justify-content: space-between;
 }
-
 
 
 /******* FORM ********/
@@ -271,7 +269,6 @@ form button {
 /******** GALLERY ********/
 .gallery {
   width: 75%;
-  /* background-color: white; */
 }
 
 .gameGallery {
@@ -356,7 +353,8 @@ footer {
     right:5%;
   }
   .scrabbleBoard{
-    left: -120px;
+    left: -140px;
+    top: -55%;
   }
   .gameContainer {
     width: 45%;
@@ -366,7 +364,7 @@ footer {
 @media(max-width: 900px){
   .scrabbleBoard{
     max-width: 580px;
-    top:-40px;
+    top:-90px;
     rotate: -48deg;
     /* left:-200px; */
   }
@@ -388,8 +386,11 @@ footer {
   .scrabbleBoard{
     max-width: 440px;
     top: 0px;
-    left:-80px;
+    left:-90px;
     rotate: -52deg;
+  }
+  h1{
+    width: 395px;
   }
   .gameContainer {
     width: 80%;
@@ -402,8 +403,8 @@ footer {
     top: -50px;
   }
   h1{
-    top: 40%;
-    width: 380px;
+    top: 43%;
+    width: 360px;
   }
   label{
     font-size:1rem;
@@ -425,7 +426,7 @@ footer {
   .scrabbleBoard{
     max-width: 400px;
     left:-100px;
-    top:-100px;
+    top:-115px;
   }
 
   .form{
@@ -459,7 +460,7 @@ footer {
     width: 270px;
   }
   .scrabbleBoard{
-    top: -120px;
+    top: -140px;
   }
 
   .cartMenu li {
