@@ -60,7 +60,11 @@ function App() {
         lt_min_age: playerCount.age
       }
     }).then((response) => {
+      if(response.ok || response.status === 200){
       setGames(response.data.games);
+      } else {
+        alert('Sorry, something went wrong! Please select again.');
+      }
     })
   }, [playerCount]);
 
