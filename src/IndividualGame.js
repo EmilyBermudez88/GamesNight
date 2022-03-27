@@ -1,5 +1,8 @@
 //IndividualGame.js
 
+import { getDatabase, ref, onValue } from 'firebase/database';
+import firebase from './firebase';
+
 function IndividualGame(props){
 
      // console.log(props);

@@ -2,6 +2,9 @@ import './App.css';
 import axios from 'axios';
 import {useEffect, useState} from 'react';
 
+import { firebase } from './firebase';
+import { getDatabase, ref, onValue } from 'firebase/database';
+
 import Header from './Header';
 import Form from './Form';
 import GameGallery from './GameGallery';
@@ -23,12 +26,17 @@ function App() {
   //state object to track which items have been selected to Add to the cart
   const [cartItem, setCartItem] = useState([]);
 
+  //FIREBASE STUFF
+  const database = getDatabase(firebase);
+  const dbRef = ref(database);
+
   //function to set games based on user selection
   const setGameOptions = (e, userSelection) => {
     e.preventDefault();
     setPlayerCount(userSelection);
   }
 
+  //HERE WE WILL NEED TO ADD IN FIREBASE - TO CALL IT TO ADD SOMETHING
   //function to add items to cart (called in IndividualGame)
   const setCart = (gameToAdd) => {
     setCartItem(() => [...cartItem, gameToAdd])
