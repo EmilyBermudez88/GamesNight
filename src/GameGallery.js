@@ -18,7 +18,6 @@ function GameGallery(props){
                                    age={game.min_age}
                                    price={game.price_ca}
                                    sku={game.sku}
-                                   handleClick={props.handleClick}
                               />
                          )
                          })
