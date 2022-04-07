@@ -1,17 +1,21 @@
 //IndividualGame.js
+import firebase from './firebase';
+import { getDatabase, ref, push } from 'firebase/database';
 
 function IndividualGame(props){
 
      // console.log(props);
+     const database = getDatabase(firebase);
+     const dbRef = ref(database);
      
      const itemToAdd = () => {
           const gameTitle = props.name;
           const gamePrice = props.price;
           const key = props.infoToPass
           const image = props.image;
-          props.handleClick({"name":gameTitle, "price":gamePrice, "key":key, "image": image});
+          // props.handleClick({"name":gameTitle, "price":gamePrice, "key":key, "image": image});
+          push(dbRef, { "name": gameTitle, "price": gamePrice, "key": key, "image": image})
      }
-
 
 
      return(
