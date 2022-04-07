@@ -78,12 +78,12 @@ hr{
   border: 0 none;
 }
 
-/***** NAV ******/
+/***** NAVIGATION ******/
 nav {
   position:fixed;
   width:100%;
   background-color:rgb(184, 172, 153);
-  z-index:20;
+  z-index:30;
   overflow:hidden;
 }
 
@@ -101,7 +101,7 @@ nav button {
   padding: 5px;
   margin-top: 5px;
 }
-.shoppingCart {
+.cartIcon {
   font-size: 35px;
   margin: 5px 0;
   color:white;
@@ -109,8 +109,8 @@ nav button {
   transition: 0.4s;
 }
 
-.shoppingCart:hover,
-.shoppingCart:focus {
+.cartIcon:hover,
+.cartIcon:focus {
   color:rgb(192, 93, 35);
 }
 
@@ -128,14 +128,22 @@ nav button {
 
 /******* SHOPPING CART  *********/
 
-.cartMenu {
-  padding-left: 0;
+.cartWrapper {
   position:relative;
+  
+}
+.cartMenu {
+  padding: 30px 70px;
+  position:absolute;
+  z-index: 20;
+  right:0;
+  top:60px;
+  background-color:rgb(184, 172, 153);
 }
 
 .cartMenu .close{
   position:absolute;
-  top: -20px;
+  top: 10px;
   padding:0 5px;
   color:rgb(90, 84, 74);
   background-color: transparent;
@@ -188,6 +196,8 @@ nav button {
   font-size: 1rem;
   text-align: left;
   color:rgb(71, 66, 58);
+  background-color: transparent;
+  border:none;
   transition: 0.3s;
 }
 

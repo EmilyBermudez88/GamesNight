@@ -2,13 +2,10 @@ import './App.css';
 import axios from 'axios';
 import {useEffect, useState} from 'react';
 
-import { firebase } from './firebase';
-import { getDatabase, ref, onValue } from 'firebase/database';
-
 import Header from './Header';
 import Form from './Form';
 import GameGallery from './GameGallery';
-import ShoppingCart from './ShoppingCart';
+import ShoppingNav from './ShoppingNav';
 
 
 function App() {
@@ -18,7 +15,7 @@ function App() {
 
   //state object of user input to be passed up from Form
   //set base call to have an API call fire on load
-  const [playerCount, setPlayerCount] = useState({
+  const [playerChoice, setPlayerChoice] = useState({
       players: 4,
       age:12
   });
@@ -26,17 +23,12 @@ function App() {
   //state object to track which items have been selected to Add to the cart
   const [cartItem, setCartItem] = useState([]);
 
-  //FIREBASE STUFF
-  const database = getDatabase(firebase);
-  const dbRef = ref(database);
-
   //function to set games based on user selection
   const setGameOptions = (e, userSelection) => {
     e.preventDefault();
-    setPlayerCount(userSelection);
+    setPlayerChoice(userSelection);
   }
 
-  //HERE WE WILL NEED TO ADD IN FIREBASE - TO CALL IT TO ADD SOMETHING
   //function to add items to cart (called in IndividualGame)
   const setCart = (gameToAdd) => {
     setCartItem(() => [...cartItem, gameToAdd])
@@ -64,8 +56,8 @@ function App() {
       url: 'https://api.boardgameatlas.com/api/search',
       params: {
         client_id: apiKey,
-        max_players: playerCount.players,
-        lt_min_age: playerCount.age
+        max_players: playerChoice.players,
+        lt_min_age: playerChoice.age
       }
     }).then((response) => {
       if(response.ok || response.status === 200){
@@ -74,12 +66,12 @@ function App() {
         alert('Sorry, something went wrong! Please select again.');
       }
     })
-  }, [playerCount]);
+  }, [playerChoice]);
 
 
   return (
     <div>
-      <ShoppingCart 
+      <ShoppingNav 
         cart={cartItem}
         removeCartItem={removeCartItem}/>
       <Header />
