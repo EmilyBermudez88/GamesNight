@@ -6,16 +6,15 @@ import { faXmark } from '@fortawesome/free-solid-svg-icons';
 
 function CartMenu (props){
 
-     // console.log(props);
-
+     console.log(props.id)
      //function passed down from App.js - pull name from game selected
-     const removeItem = () => {
-          const itemToRemove = props.name;
+     const removeItem = (e) => {
+          const itemToRemove = e.target.className;
           props.handleClick(itemToRemove); 
      }
 
      return(
-          <li>
+          <li key={props.id}>
                <div className="cartImage">
                     <img src={props.image} alt={`board game ${props.name}`} />
                </div>
@@ -24,7 +23,7 @@ function CartMenu (props){
                     <p>{`$${props.price}`}</p>
                     <button
                          onClick={removeItem}
-                         className={props.name}>
+                         className={props.id}>
                          <FontAwesomeIcon
                               icon={faXmark}
                          />

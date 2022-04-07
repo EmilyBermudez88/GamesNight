@@ -1,6 +1,6 @@
 //IndividualGame.js
 import firebase from './firebase';
-import { getDatabase, ref, onValue, push } from 'firebase/database';
+import { getDatabase, ref, push } from 'firebase/database';
 
 function IndividualGame(props){
 
@@ -16,7 +16,6 @@ function IndividualGame(props){
           // props.handleClick({"name":gameTitle, "price":gamePrice, "key":key, "image": image});
           push(dbRef, { "name": gameTitle, "price": gamePrice, "key": key, "image": image})
      }
-
 
 
      return(

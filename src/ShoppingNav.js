@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import firebase from './firebase';
-import { getDatabase, ref, onValue } from 'firebase/database';
+import { getDatabase, ref, onValue, remove } from 'firebase/database';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
@@ -10,15 +10,17 @@ import CartMenu from './CartMenu';
 import { useEffect } from 'react';
 
 
-function ShoppingCart(props){
+function ShoppingCart(){
 
-     // console.log(props.cart);
+    //firebase variables
+    const database = getDatabase(firebase);
+    const dbRef = ref(database);
 
      //state to show or hide cart 
     const [displayCart, setDisplayCart] = useState(false)
 
     //state to display cartItems
-    const [testCart, setTestCart] = useState([]);
+    const [cartItems, setCartItems] = useState([]);
 
      //show/hide cart based on click of shopping cart
     const showCart =(e)=>{
@@ -31,30 +33,27 @@ function ShoppingCart(props){
 
     //pulling the cart items down from firebase
     useEffect(()=> {
-        const database = getDatabase(firebase);
-        const dbRef = ref(database);
 
         onValue(dbRef, (response) => {
             const newState = [];
             const data = response.val()
-            console.log(data);
-            // newState.push(data[0].name);
+            // console.log(data);
             for (let key in data) {
-                console.log(key)
-                newState.push(data[key])
+                // console.log(data[key])
+                // console.log(key);
+                newState.push({key:key, game:data[key]});
             }
-            setTestCart(newState);
-            console.log(testCart)
+            // newState.push(data);
+            setCartItems(newState);
         })        
     }, [])
     
     
-
-     //loop through props.cart to pull prices and push them into one array
-    const cart = testCart;
+     //loop through cartItems to pull prices and push them into one array
+    const cart = cartItems;
     const newTotal = [];
     for (let i = 0; i < cart.length; i++) {
-        newTotal.push(parseFloat(cart[i].price));
+        newTotal.push(parseFloat(cart[i].game.price));
     }
      //now loop through that array to get the sum of all it's prices:
     let cartSum = 0;
@@ -62,9 +61,10 @@ function ShoppingCart(props){
         cartSum +=newTotal[i];
     }
 
-     //function passed down from App.js to remove cart items
-    const click = (removedItem)=> {
-        props.removeCartItem(removedItem);
+    //remove games from firebase on click
+    const removeGame = (id) => {
+        const userRef = ref(database, `/${id}`);
+        remove(userRef);
     }
 
     return(
@@ -90,13 +90,13 @@ function ShoppingCart(props){
                                     className="close"
                                     onClick={closeCart} />
                                 {
-                                    testCart.map((item) => {
+                                    cartItems.map((item) => {
                                         return (<CartMenu
-                                            key={item.key}
-                                            name={item.name}
-                                            price={item.price}
-                                            image={item.image}
-                                            handleClick={click}
+                                            id={item.key}
+                                            name={item.game.name}
+                                            price={item.game.price}
+                                            image={item.game.image}
+                                            handleClick={removeGame}
                                         />
                                         )
                                     })
@@ -116,3 +116,19 @@ function ShoppingCart(props){
 }
 
 export default ShoppingCart;
+
+
+    // //function to remove items from cart (called in CartMenu)
+    // const removeCartItem = (gameParam) => {
+    //     let index
+    //     //pull index of each item inside cart
+    //     for (let i = 0; i < cartItems.length; i++) {
+    //         if (cartItems[i].name === gameParam) {
+    //             index = i;
+    //         }
+    //     }
+    //     //with index values, create new 
+    //     const newCart = Array.from(cartItems);
+    //     newCart.splice(index, 1);
+    //     setCartItems(newCart);
+    // }

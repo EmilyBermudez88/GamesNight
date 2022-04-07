@@ -20,8 +20,8 @@ function App() {
       age:12
   });
 
-  //state object to track which items have been selected to Add to the cart
-  const [cartItem, setCartItem] = useState([]);
+  // //state object to track which items have been selected to Add to the cart
+  // const [cartItem, setCartItem] = useState([]);
 
   //function to set games based on user selection
   const setGameOptions = (e, userSelection) => {
@@ -29,25 +29,12 @@ function App() {
     setPlayerChoice(userSelection);
   }
 
-  //function to add items to cart (called in IndividualGame)
-  const setCart = (gameToAdd) => {
-    setCartItem(() => [...cartItem, gameToAdd])
-  }
+  // //function to add items to cart (called in IndividualGame)
+  // const setCart = (gameToAdd) => {
+  //   setCartItem(() => [...cartItem, gameToAdd])
+  // }
 
-  //function to remove items from cart (called in CartMenu)
-  const removeCartItem = (gameParam)=> {
-    let index
-    //pull index of each item inside cart
-    for (let i = 0; i < cartItem.length; i++) {
-      if (cartItem[i].name === gameParam) {
-        index= i;
-      }
-    }
-    //with index values, create new 
-    const newCart= Array.from(cartItem);
-    newCart.splice(index, 1);
-    setCartItem(newCart);
-  }
+  
 
   //make API call - will call on start, and then each time user changes preferences
   useEffect(()=>{
@@ -71,16 +58,13 @@ function App() {
 
   return (
     <div>
-      <ShoppingNav 
-        cart={cartItem}
-        removeCartItem={removeCartItem}/>
+      <ShoppingNav/>
       <Header />
       <main>
         <div className="wrapper">
           <Form handleSubmit={setGameOptions} />
           <GameGallery 
-            gameProps={games} 
-            handleClick={setCart}/>
+            gameProps={games}/>
         </div>
       </main>  
       <footer>
