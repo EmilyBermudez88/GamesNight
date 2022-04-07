@@ -211,7 +211,7 @@ header {
 }
 .scrabbleBoard{
   position:absolute;
-  rotate: -40deg;
+  transform: rotate(-40deg);
   left:-90px;
   top: -50%;
   overflow:hidden;
@@ -232,7 +232,7 @@ h1{
 
 main {
   padding-top: 40px;
-  background-color: rgba(255,255,255,0.2);
+  /* background-color: rgba(255,255,255,0.2); */
 }
 .wrapper {
   display:flex;
@@ -291,7 +291,7 @@ form button {
   display:flex;
   flex-direction: column;
   justify-content: space-between;
-  background-color:rgba(255,255,255,0.6);
+  background-color:rgba(255,255,255,0.5);
   box-shadow: 2px 2px 8px rgba(64, 64, 64, 0.1), -2px -2px 8px rgba(66, 66, 66, 0.1);
 }
 
@@ -365,7 +365,7 @@ footer {
   .scrabbleBoard{
     max-width: 580px;
     top:-90px;
-    rotate: -48deg;
+    transform: rotate(-48deg);
     /* left:-200px; */
   }
   h1{
@@ -387,7 +387,7 @@ footer {
     max-width: 440px;
     top: 0px;
     left:-90px;
-    rotate: -52deg;
+    transform: rotate(-52deg);
   }
   h1{
     width: 395px;

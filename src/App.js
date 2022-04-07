@@ -15,7 +15,7 @@ function App() {
 
   //state object of user input to be passed up from Form
   //set base call to have an API call fire on load
-  const [playerCount, setPlayerCount] = useState({
+  const [playerChoice, setPlayerChoice] = useState({
       players: 4,
       age:12
   });
@@ -26,7 +26,7 @@ function App() {
   //function to set games based on user selection
   const setGameOptions = (e, userSelection) => {
     e.preventDefault();
-    setPlayerCount(userSelection);
+    setPlayerChoice(userSelection);
   }
 
   //function to add items to cart (called in IndividualGame)
@@ -56,8 +56,8 @@ function App() {
       url: 'https://api.boardgameatlas.com/api/search',
       params: {
         client_id: apiKey,
-        max_players: playerCount.players,
-        lt_min_age: playerCount.age
+        max_players: playerChoice.players,
+        lt_min_age: playerChoice.age
       }
     }).then((response) => {
       if(response.ok || response.status === 200){
@@ -66,7 +66,7 @@ function App() {
         alert('Sorry, something went wrong! Please select again.');
       }
     })
-  }, [playerCount]);
+  }, [playerChoice]);
 
 
   return (
