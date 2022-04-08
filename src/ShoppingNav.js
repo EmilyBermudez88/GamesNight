@@ -46,7 +46,7 @@ function ShoppingCart(){
             // newState.push(data);
             setCartItems(newState);
         })        
-    }, [])
+    })
     
     
      //loop through cartItems to pull prices and push them into one array

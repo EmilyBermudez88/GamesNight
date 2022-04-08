@@ -67,7 +67,7 @@ function Form(props){
                          <option value="10">6-9</option>
                          <option value="13">10-12</option>
                          <option value="18">12-17</option>
-                         <option value="100">18+ </option>
+                         <option value="100">All Ages </option>
                     </select>
 
                     <button>Get me Games</button>
