@@ -134,11 +134,13 @@ nav button {
 }
 .cartMenu {
   padding: 30px 70px;
-  position:absolute;
+  position:fixed;
   z-index: 20;
   right:0;
   top:60px;
   background-color:rgb(184, 172, 153);
+  max-height: 90vh;
+  overflow-y: scroll;
 }
 
 .cartMenu .close{
