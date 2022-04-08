@@ -6,6 +6,7 @@ import Header from './Header';
 import Form from './Form';
 import GameGallery from './GameGallery';
 import ShoppingNav from './ShoppingNav';
+import LoadingAnimation from './LoadingAnimation';
 
 
 function App() {
@@ -20,20 +21,14 @@ function App() {
       age:12
   });
 
-  // //state object to track which items have been selected to Add to the cart
-  // const [cartItem, setCartItem] = useState([]);
+  //state to track if the api is loading data or not
+  const [loading, setLoading]= useState(false);
 
   //function to set games based on user selection
   const setGameOptions = (e, userSelection) => {
     e.preventDefault();
     setPlayerChoice(userSelection);
   }
-
-  // //function to add items to cart (called in IndividualGame)
-  // const setCart = (gameToAdd) => {
-  //   setCartItem(() => [...cartItem, gameToAdd])
-  // }
-
   
 
   //make API call - will call on start, and then each time user changes preferences
@@ -49,10 +44,13 @@ function App() {
     }).then((response) => {
       if(response.ok || response.status === 200){
       setGames(response.data.games);
+      
       } else {
         alert('Sorry, something went wrong! Please select again.');
       }
+      setLoading(true);
     })
+    setLoading(false);
   }, [playerChoice]);
 
 
@@ -63,8 +61,11 @@ function App() {
       <main>
         <div className="wrapper">
           <Form handleSubmit={setGameOptions} />
-          <GameGallery 
-            gameProps={games}/>
+          
+          {loading ? 
+            <GameGallery
+            gameProps={games} /> 
+            : <LoadingAnimation/>}
         </div>
       </main>  
       <footer>
@@ -78,11 +79,15 @@ function App() {
 export default App;
 
 
-//I WOULD LOVE FEEDBACK IF THIS APP IS STRUCTURED ODDLY, WITH ALL ITS COMPONENTS! 
 
 
+  // //state object to track which items have been selected to Add to the cart
+  // const [cartItem, setCartItem] = useState([]);
 
-
+ // //function to add items to cart (called in IndividualGame)
+  // const setCart = (gameToAdd) => {
+  //   setCartItem(() => [...cartItem, gameToAdd])
+  // }
 
 
 

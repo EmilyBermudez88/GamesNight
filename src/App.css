@@ -348,6 +348,29 @@ form button {
   color:white;
 }
 
+/****** LOADING ANIMATION  ******/
+.loadingAnimation {
+  width: 150px;
+  height: 150px;
+  border: 20px solid rgb(184, 172, 153);;
+  border-radius: 50%;
+  border-top: 20px solid rgb(231,129,71);
+  position:absolute;
+  left: 50%;
+  /* transform: translateX(-50%); */
+  opacity: 0.7;
+  z-index: 20;
+  animation: spin 1s infinite linear;
+}
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 /****** FOOTER *******/
 footer {
   background-color: rgb(184, 172, 153);
