@@ -6,7 +6,7 @@ import { faXmark } from '@fortawesome/free-solid-svg-icons';
 
 function CartMenu (props){
 
-     console.log(props.id)
+     // console.log(props.id)
      //function passed down from App.js - pull name from game selected
      const removeItem = (e) => {
           const itemToRemove = e.target.className;

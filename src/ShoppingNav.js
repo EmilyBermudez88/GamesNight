@@ -46,7 +46,7 @@ function ShoppingCart(){
             // newState.push(data);
             setCartItems(newState);
         })        
-    })
+    },[])
     
     
      //loop through cartItems to pull prices and push them into one array
@@ -92,6 +92,7 @@ function ShoppingCart(){
                                 {
                                     cartItems.map((item) => {
                                         return (<CartMenu
+                                            key={item.key}
                                             id={item.key}
                                             name={item.game.name}
                                             price={item.game.price}
