@@ -1,5 +1,5 @@
 //Header.js
-import scrabble from './assets/scrabble.svg';
+import scrabble from './assets/scrabble.png';
 import scrabbleTitle2 from './assets/scrabbleTitle2.png';
 
 function Header(){
